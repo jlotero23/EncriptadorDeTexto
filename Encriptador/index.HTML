@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charsert="UTF-8">
+    <title>Challenge Encriptador</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function encriptar() {
+            var mensaje = (document.getElementById("mensaje").value).toLowerCase();
+            var men = mensaje.split("");
+            var cripto = "";
+            for (var i = 0; i < men.length; i++) {
+                switch (men[i]) {
+                    case "e":
+                        cripto += "enter";
+                        break;
+                    case "i":
+                        cripto += "imes";
+                        break;
+                    case "a":
+                        cripto += "ai";
+                        break;
+                    case "o":
+                        cripto += "ober";
+                        break;
+                    case "u":
+                        cripto += "ufat";
+                        break;
+                    default:
+                        cripto += men[i];
+                        break;
+                }
+            }
+            document.getElementById("mensajeen").value = cripto;
+        }
+
+        function desencriptar() {
+            var mensaje = (document.getElementById("mensaje").value).toLowerCase();
+            var men = mensaje.split("");
+            var descrito = "";
+            for (var i = 0; i < men.length; i++) {
+                switch (men[i]) {
+                    case "e":
+                        if (men[i + 1] == "n") {
+                            if (men[i + 2] == "t") {
+                                if (men[i + 3] == "e") {
+                                    if (men[i + 4] == "r") {
+                                        descrito += "e";
+                                        i += 4;
+                                        break;
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                        break;
+                    case "i":
+                        if (men[i + 1] == "m") {
+                            if (men[i + 2] == "e") {
+                                if (men[i + 3] == "s") {
+                                    descrito += "i";
+                                    i += 3;
+                                    break;
+                                }
+                            }
+                        }
+
+                    case "a":
+                        if (men[i + 1] == "i") {
+                            descrito += "a";
+                            i += 1;
+                            break;
+                        }
+                    case "o":
+                        if (men[i + 1] == "b") {
+                            if (men[i + 2] == "e") {
+                                if (men[i + 3] == "r") {
+                                    descrito += "o";
+                                    i += 3;
+                                    break;
+                                }
+                            }
+                        }
+                    case "u":
+                        if (men[i + 1] == "f") {
+                            if (men[i + 2] == "a") {
+                                if (men[i + 3] == "t") {
+                                    descrito += "u";
+                                    i += 3;
+                                    break;
+                                }
+                            }
+                        }
+                    default:
+                        descrito += men[i];
+                        break;
+                }
+            }
+
+            document.getElementById("mensajeen").value = descrito;
+        }
+
+        function copiar() {
+            var mensaje = (document.getElementById("mensajeen").value);
+            mensajeen.select();
+            document.execCommand("copy");
+            mensajeen.value = "";
+            mensajeen.value = mensaje;
+        }
+
+        function cambiar() {
+            var x = document.getElementById('cambiar');
+            var y = document.getElementById('nohay');
+            var mensaje = (document.getElementById("mensaje").value).toLowerCase();
+            if (mensaje != '') {
+                x.style.display = 'inline-block';
+                y.style.display = 'none';
+            } else {
+                x.style.display = 'none';
+                y.style.display = 'inline-block';
+                
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+    <main>
+
+        <h1><img src="imagenes/logo.png" alt="Logo de Alura"></h1>
+
+        <div class="en">
+            <textarea id="mensaje" placeholder="Ingrese su mensaje"></textarea>
+            <input type="button" value="Encriptar" id="botonen" class="boton" onclick="encriptar(), cambiar()">
+            <input type="button" value="Desencriptar" id="botondes" class="boton" onclick="desencriptar(), cambiar()">
+
+
+        </div>
+
+        
+
+
+    </main>
+
+    <div  class="resultado" id="nohay">
+        <img id="cosa" src="imagenes/Muñeco.png">
+        <p id="titulo">Ningun mensaje fue encontrado</p>
+        <P id="txt">Ingresa el mensaje que deseas encriptar o desencriptar</P>
+    </div>
+    
+
+    <div class="resultado" id="cambiar">
+        <textarea readonly id="mensajeen"></textarea>
+        <input type="button" value="Copiar" id="copiar" class="boton" onclick="copiar()">
+    </div>
+
+
+    <footer>
+        <div>
+            <img src="imagenes/logo.png" alt="Logo de la barberia Alura">
+            <p class="pie">&#169; Copyright Encriptador - 2023
+                <br>
+                Juan José Lotero Florez
+                <br>
+                Grupo #5
+                <br>
+                Hello ONE - Oracle Alura
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
